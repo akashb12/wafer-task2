@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Axios from "axios";
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap';
+import jsPDF from 'jspdf';
+
+
+const ref = React.createRef();
 function HomePage(props) {
 
     // auth check
     const id = window.sessionStorage.getItem('id')
-    if(!id){
+    if (!id) {
         props.history.push('/login')
 
     }
@@ -51,8 +55,25 @@ function HomePage(props) {
             }
         })
     }
+
+    // generate pdf
+    const generatePdf = () => {
+        let document = new jsPDF('p', 'pt')
+
+        // add text
+        document.text(20, 20, `address is ${AddressValue}`)
+        document.text(20, 40, `pincode is ${PinCodeValue}`)
+
+        // set font
+        document.setFont('courier')
+
+        // save pdf
+        document.save('info.pdf')
+    }
+
     return (
         <div className='register'>
+            <h1>Details</h1>
             <Form onSubmit={onSubmit}>
                 <Form.Group >
                     <Form.Label>Address</Form.Label>
@@ -67,9 +88,8 @@ function HomePage(props) {
                     <Form.Label>Age</Form.Label>
                     <Form.Control type="number" placeholder="Age" onChange={onAgeChange} value={AgeValue} />
                 </Form.Group>
-                <Button variant="primary" onClick={onSubmit}>
-                    Submit
-  </Button>
+                <Button className='homepage-btn' variant="primary" onClick={onSubmit}>Submit</Button>
+                <Button className='homepage-btn' variant="primary" onClick={generatePdf}>Pdf</Button>
             </Form>
         </div>
     )

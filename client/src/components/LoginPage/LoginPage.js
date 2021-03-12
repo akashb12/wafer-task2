@@ -6,6 +6,10 @@ import Axios from "axios";
 const { Title } = Typography;
 
 function LoginPage(props) {
+    const id = window.sessionStorage.getItem('id') || '';
+    if (id) {
+        props.history.push('/home')
+    }
     const [formErrorMessage, setFormErrorMessage] = useState('')
 
     return (

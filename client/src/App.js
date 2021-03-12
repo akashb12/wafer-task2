@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch,Redirect  } from "react-router-dom";
 import NavBar from './components/NavBar/NavBar';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'antd/dist/antd.css';
@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/register" component={(RegisterPage)} />
         <Route exact path="/login" component={(LoginPage)} />
         <Route exact path="/verifyUser" component={(Verification)} />
-        <Route exact path="/home" component={(HomePage)} />
+        <Route exact path="/" component={(HomePage)} />
       </Switch>
     </Router>
   );

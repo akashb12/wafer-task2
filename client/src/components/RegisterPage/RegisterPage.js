@@ -32,6 +32,10 @@ const tailFormItemLayout = {
 };
 
 function RegisterPage(props) {
+  const id = window.sessionStorage.getItem('id') || '';
+  if (id) {
+    props.history.push('/home')
+  }
   return (
 
     <Formik
@@ -42,7 +46,7 @@ function RegisterPage(props) {
         confirmPassword: ''
       }}
       validationSchema={Yup.object().shape({
-        phone: Yup.number()
+        phone: Yup.string()
           .min(10, 'Password must be 10 characters')
           .required('Phone is required'),
         email: Yup.string()

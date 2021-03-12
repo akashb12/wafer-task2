@@ -56,3 +56,8 @@ code {
   flex-direction: column;
   height: 85vh;
 }
+
+/* button */
+.homepage-btn{
+  margin-right: 10px;
+}

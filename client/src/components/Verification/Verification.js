@@ -26,7 +26,7 @@ function Verification(props) {
                     Axios.post("/api/users/verification", dataToSubmit).then((response) => {
                         if (response.data.status) {
                             window.sessionStorage.setItem('id', props.location.state.id);
-                            props.history.push('/home')
+                            window.location.replace("/home");
                         } else {
                             setFormErrorMessage('Invalid otp')
                         }
