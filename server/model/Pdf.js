@@ -17,7 +17,11 @@ const pdfSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-}, { timestamps: true })
+    updatedItems:{
+        type:Array,
+        default:[]
+    }
+})
 
 
 const Pdf = mongoose.model('Pdf', pdfSchema);

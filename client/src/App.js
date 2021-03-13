@@ -7,6 +7,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import LoginPage from './components/LoginPage/LoginPage';
 import Verification from './components/Verification/Verification';
 import HomePage from './components/HomePage/HomePage';
+import HistoryPage from './components/HistoryPage/HistoryPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/login" component={(LoginPage)} />
         <Route exact path="/verifyUser" component={(Verification)} />
         <Route exact path="/" component={(HomePage)} />
+        <Route exact path="/history" component={(HistoryPage)} />
       </Switch>
     </Router>
   );

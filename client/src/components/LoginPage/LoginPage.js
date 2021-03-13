@@ -8,7 +8,7 @@ const { Title } = Typography;
 function LoginPage(props) {
     const id = window.sessionStorage.getItem('id') || '';
     if (id) {
-        props.history.push('/home')
+        props.history.push('/')
     }
     const [formErrorMessage, setFormErrorMessage] = useState('')
 

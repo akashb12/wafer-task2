@@ -23,21 +23,21 @@ module.exports.getPdfData = function (req, res) {
 
 // add form data
 module.exports.addData = function (req, res) {
-    const { address, pincode, age,id } = req.body;
+    const { address, pincode, age, id } = req.body;
     Pdf.findOneAndUpdate(
-        { writer: id},
-        {  address: address,pincode:pincode,age:age  },
+        { writer: id },
+        { address: address, pincode: pincode, age: age, $addToSet: { "updatedItems": { updatedAt: new Date().toLocaleString(undefined, { timeZone: 'Asia/Kolkata' }), address: address, pincode: pincode, age: age } } },
         { new: true },
         (err, pdf) => {
             if (err) return res.status(400).json({ status: false, err });
-            else if(pdf){
+            else if (pdf) {
                 return res.status(200).json({
                     status: true,
                     message: "data added"
                 });
             }
-            else{
-                const pdf = new Pdf({ writer:id,address: address,pincode:pincode,age:age });
+            else {
+                const pdf = new Pdf({ writer: id, address: address, pincode: pincode, age: age, "updatedItems": { updatedAt: new Date().toLocaleString(undefined, { timeZone: 'Asia/Kolkata' }), address: address, pincode: pincode, age: age } });
                 pdf.save((err, doc) => {
                     if (err) {
                         console.log("error", err)

@@ -16,6 +16,7 @@ function NavBar() {
             <Nav className="ml-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link onClick={() => logout()}>Logout</Nav.Link>
+              <Nav.Link href='/history'>History</Nav.Link>
             </Nav> :
             <Nav className="ml-auto">
               <Nav.Link href="/login">Login</Nav.Link>
