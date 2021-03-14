@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 import Verification from './components/Verification/Verification';
 import HomePage from './components/HomePage/HomePage';
 import HistoryPage from './components/HistoryPage/HistoryPage';
+import Pdf from './components/Pdf/Pdf';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/verifyUser" component={(Verification)} />
         <Route exact path="/" component={(HomePage)} />
         <Route exact path="/history" component={(HistoryPage)} />
+        <Route exact path="/pdf" component={(Pdf)} />
       </Switch>
     </Router>
   );
